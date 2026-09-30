@@ -22,12 +22,18 @@ export interface Profile {
 
 export interface DayLog {
   weight?: number
-  water?: number
-  sleep?: number
-  exercise?: string
-  steps?: number
-  bannedCount?: number
+  /** O/X 체크: true = O, false = X, 없으면 미입력 */
+  water?: boolean
+  sleepOk?: boolean
+  stepsOk?: boolean
+  banned?: string
+  exercise?: boolean
   gratitude?: string
+}
+
+export interface WeekCheck {
+  weight?: number
+  muscle?: number
 }
 
 export interface MealEntry {
@@ -53,7 +59,10 @@ export interface AppState {
   profile: Profile | null
   days: Record<string, DayLog>
   meals: Record<string, MealEntry[]>
-  week2: { weight?: number; waist?: number }
+  /** 주차별 중간 점검 (키: 주차 번호) */
+  checks: Record<number, WeekCheck>
   day1: Measure
+  /** 1일차 측정을 저장한 날 — 있으면 달력의 DAY 1로 고정 */
+  day1Date?: string
   day28: Measure
 }

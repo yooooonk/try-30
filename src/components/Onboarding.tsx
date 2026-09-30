@@ -9,7 +9,6 @@ export function Onboarding({ onDone }: { onDone: (p: Profile) => void }) {
   const [weight, setWeight] = useState('')
   const [age, setAge] = useState('')
   const [lowMuscle, setLowMuscle] = useState(false)
-  const [startDate, setStartDate] = useState(todayStr())
 
   const h = Number(height)
   const w = Number(weight)
@@ -37,9 +36,6 @@ export function Onboarding({ onDone }: { onDone: (p: Profile) => void }) {
           <Field label="체중 (kg)">
             <input className={inputCls} type="number" step="0.1" value={weight} onChange={(e) => setWeight(e.target.value)} />
           </Field>
-          <Field label="시작일">
-            <input className={inputCls} type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} />
-          </Field>
         </div>
         <label className="mt-3 flex items-center gap-2 text-sm">
           <input type="checkbox" checked={lowMuscle} onChange={(e) => setLowMuscle(e.target.checked)} />
@@ -60,7 +56,7 @@ export function Onboarding({ onDone }: { onDone: (p: Profile) => void }) {
       <button
         className={`${btnCls} w-full`}
         disabled={!valid}
-        onClick={() => onDone({ sex, height: h, weight: w, age: Number(age), lowMuscle, muscleLoss: false, startDate })}
+        onClick={() => onDone({ sex, height: h, weight: w, age: Number(age), lowMuscle, muscleLoss: false, startDate: todayStr() })}
       >
         시작하기
       </button>

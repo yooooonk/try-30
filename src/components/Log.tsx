@@ -1,94 +1,164 @@
-import { dayIndex, guide, sumEntries, waterTarget, weekOf } from '../lib/calc'
-import type { AppState, DayLog, Measure, Profile } from '../types'
-import { Card, Field, inputCls, NumInput } from './ui'
+import { useState } from 'react'
+import { addDays, dayIndex, todayStr } from '../lib/calc'
+import type { AppState, DayLog, Measure, Profile, WeekCheck } from '../types'
+import { Card, Field, ghostBtnCls, inputCls, NumInput } from './ui'
 
 interface Props {
   profile: Profile
-  date: string
   state: AppState
   update: (fn: (s: AppState) => AppState) => void
-  latestWeight: number
 }
 
-export function Log({ profile, date, state, update, latestWeight }: Props) {
-  const day = dayIndex(profile.startDate, date)
-  const week = weekOf(day)
-  const w = guide.weeks[week - 1]
+const hasMeasure = (m: Measure) => Object.values(m).some((v) => v !== undefined && v !== '')
+
+const isRecorded = (d?: DayLog) =>
+  !!d && Object.values(d).some((v) => v !== undefined && v !== '')
+
+export function Log({ profile, state, update }: Props) {
+  const [open, setOpen] = useState<'day1' | 'day28' | null>(null)
+  const today = todayStr()
+  const dates = Array.from({ length: 28 }, (_, i) => addDays(profile.startDate, i))
+  const todayDay = dayIndex(profile.startDate, today)
+  const [selected, setSelected] = useState(Math.min(28, Math.max(1, todayDay)))
+  const date = dates[selected - 1]
   const log = state.days[date] ?? {}
-  const total = sumEntries(state.meals[date] ?? [])
+  const isWeekEnd = selected % 7 === 0
+  const week = selected / 7
+
   const set = (patch: Partial<DayLog>) =>
     update((s) => ({ ...s, days: { ...s.days, [date]: { ...s.days[date], ...patch } } }))
+  const setCheck = (patch: Partial<WeekCheck>) =>
+    update((s) => ({ ...s, checks: { ...s.checks, [week]: { ...s.checks[week], ...patch } } }))
 
   return (
     <div className="space-y-4">
-      <Card title={`DAY ${day} · ${week}주차 — ${w.title}`}>
-        <ul className="list-disc space-y-1 pl-5 text-sm">
-          {w.missions.map((m) => <li key={m}>{m}</li>)}
-        </ul>
-        <p className="mt-2 text-sm">운동: {w.exercise}</p>
-        {w.ban.length > 0 && <p className="mt-1 text-sm text-red-600">이번 주 끊기: {w.ban.join(' · ')}</p>}
-        <p className="mt-2 rounded-lg bg-amber-50 p-2 text-sm text-amber-800">{w.note}</p>
+      <div className="grid grid-cols-2 gap-2">
+        {([['day1', '1일차 측정'], ['day28', '28일차 측정']] as const).map(([k, label]) => (
+          <button
+            key={k}
+            className={`${ghostBtnCls} ${open === k ? '!border-emerald-500 !bg-emerald-50 font-semibold' : ''}`}
+            onClick={() => setOpen(open === k ? null : k)}
+          >
+            {label}
+          </button>
+        ))}
+      </div>
+      {open === 'day1' && <MeasureCard title="1일차 측정" value={state.day1} onChange={(m) => update((s) => ({ ...s, day1: m, day1Date: hasMeasure(m) ? (s.day1Date ?? today) : undefined }))} />}
+      {open === 'day28' && <MeasureCard title="28일차 측정" value={state.day28} onChange={(m) => update((s) => ({ ...s, day28: m }))} />}
+      {open && <Compare day1={state.day1} day28={state.day28} />}
+
+      <Card title="28일 달력">
+        <div className="space-y-2">
+          {[0, 1, 2, 3].map((row) => (
+            <div key={row} className="grid grid-cols-[2.5rem_repeat(7,1fr)] items-center gap-1 text-center">
+              <span className="text-xs text-stone-500">{row + 1}주</span>
+              {dates.slice(row * 7, row * 7 + 7).map((d, c) => {
+                const n = row * 7 + c + 1
+                const recorded = isRecorded(state.days[d])
+                return (
+                  <button
+                    key={d}
+                    onClick={() => setSelected(n)}
+                    className={`rounded-lg py-1 text-xs ${selected === n ? 'bg-stone-200' : ''} ${d === today ? 'font-bold' : ''}`}
+                  >
+                    <span
+                      className={`mx-auto flex h-8 w-8 items-center justify-center rounded-full text-sm ${
+                        recorded ? 'bg-emerald-500 text-white' : 'border border-stone-300'
+                      }`}
+                    >
+                      {n}
+                    </span>
+                    <span className="text-[10px] text-stone-400">{d.slice(5).replace('-', '/')}</span>
+                  </button>
+                )
+              })}
+            </div>
+          ))}
+        </div>
+        <p className="mt-2 text-xs text-stone-500">초록 동그라미 = 기록한 날 · 굵은 글씨 = 오늘</p>
       </Card>
 
-      <Card title="오늘 기록">
-        <div className="grid grid-cols-2 gap-3">
-          <Field label="체중 (kg) · 아침 공복"><NumInput value={log.weight} onChange={(v) => set({ weight: v })} /></Field>
-          <Field label={`물 (L) · 목표 ${waterTarget(latestWeight)}`}><NumInput value={log.water} onChange={(v) => set({ water: v })} /></Field>
-          <Field label="잠 (h) · 7 이상"><NumInput value={log.sleep} onChange={(v) => set({ sleep: v })} /></Field>
-          <Field label="걸음수 · 7,000 이상"><NumInput step={100} value={log.steps} onChange={(v) => set({ steps: v })} /></Field>
-          <Field label="금지식품 (회)"><NumInput step={1} value={log.bannedCount} onChange={(v) => set({ bannedCount: v })} /></Field>
-          <Field label="운동 종류">
-            <input className={inputCls} value={log.exercise ?? ''} onChange={(e) => set({ exercise: e.target.value })} />
+      <Card title={`DAY ${selected} 기록 · ${date}${date === today ? ' (오늘)' : ''}`}>
+        <div className="space-y-4">
+          <Field label="체중 (kg) · 아침 공복">
+            <NumInput value={log.weight} onChange={(v) => set({ weight: v })} />
           </Field>
-        </div>
-        <p className="mt-3 text-sm text-stone-600">식이섬유 {total.fiber}g · 단백질 {total.protein}g (먹은 기록에서 자동 합산)</p>
-        <div className="mt-3">
+          <OX label="물 (체중 × 30ml)" value={log.water} onChange={(v) => set({ water: v })} />
+          <OX label="잠 7시간 이상" value={log.sleepOk} onChange={(v) => set({ sleepOk: v })} />
+          <OX label="걸음수 7,000걸음 이상" value={log.stepsOk} onChange={(v) => set({ stepsOk: v })} />
+          <OX label="운동" value={log.exercise} onChange={(v) => set({ exercise: v })} />
+          <Field label="먹은 금지식품">
+            <input className={inputCls} placeholder="없으면 비워두세요" value={log.banned ?? ''} onChange={(e) => set({ banned: e.target.value })} />
+          </Field>
           <Field label="오늘 감사한 일 한 줄">
             <input className={inputCls} value={log.gratitude ?? ''} onChange={(e) => set({ gratitude: e.target.value })} />
           </Field>
         </div>
-        <label className="mt-3 flex items-center gap-2 text-sm">
-          <input
-            type="checkbox"
-            checked={profile.muscleLoss}
-            onChange={(e) => update((s) => ({ ...s, profile: s.profile && { ...s.profile, muscleLoss: e.target.checked } }))}
-          />
-          골격근이 줄었다 (단백질 목표 ×1.7)
-        </label>
       </Card>
 
-      <Card title="2주차 중간 점검">
-        <div className="grid grid-cols-2 gap-3">
-          <Field label="체중 (kg)"><NumInput value={state.week2.weight} onChange={(v) => update((s) => ({ ...s, week2: { ...s.week2, weight: v } }))} /></Field>
-          <Field label="허리둘레 (cm)"><NumInput value={state.week2.waist} onChange={(v) => update((s) => ({ ...s, week2: { ...s.week2, waist: v } }))} /></Field>
-        </div>
-      </Card>
+      {isWeekEnd && (
+        <Card title={`${week}주차 중간 점검`}>
+          <div className="grid grid-cols-2 gap-3">
+            <Field label="체중 (kg)"><NumInput value={state.checks[week]?.weight} onChange={(v) => setCheck({ weight: v })} /></Field>
+            <Field label="근육량 (kg)"><NumInput value={state.checks[week]?.muscle} onChange={(v) => setCheck({ muscle: v })} /></Field>
+          </div>
+        </Card>
+      )}
+    </div>
+  )
+}
 
-      <MeasureCard title="1일차 측정" value={state.day1} onChange={(m) => update((s) => ({ ...s, day1: m }))} />
-      <MeasureCard title="28일차 측정" value={state.day28} onChange={(m) => update((s) => ({ ...s, day28: m }))} />
-      <Compare day1={state.day1} day28={state.day28} />
+function OX({ label, value, onChange }: { label: string; value: boolean | undefined; onChange: (v: boolean | undefined) => void }) {
+  const btn = (v: boolean, text: string, on: string) => (
+    <button
+      type="button"
+      className={`${ghostBtnCls} w-14 ${value === v ? on : ''}`}
+      onClick={() => onChange(value === v ? undefined : v)}
+    >
+      {text}
+    </button>
+  )
+  return (
+    <div className="flex items-center justify-between gap-3 text-sm">
+      <span>{label}</span>
+      <div className="flex gap-2">
+        {btn(true, 'O', '!border-emerald-500 !bg-emerald-50 font-semibold text-emerald-700')}
+        {btn(false, 'X', '!border-red-400 !bg-red-50 font-semibold text-red-600')}
+      </div>
     </div>
   )
 }
 
 function MeasureCard({ title, value, onChange }: { title: string; value: Measure; onChange: (m: Measure) => void }) {
+  const [draft, setDraft] = useState<Measure>(value)
+  const [saved, setSaved] = useState(false)
+  const edit = (patch: Partial<Measure>) => {
+    setDraft({ ...draft, ...patch })
+    setSaved(false)
+  }
+  const save = () => {
+    if (JSON.stringify(draft) === JSON.stringify(value)) return
+    onChange(draft)
+    setSaved(true)
+  }
   const num = (k: 'weight' | 'bodyFat' | 'muscle' | 'waist', label: string) => (
-    <Field label={label}><NumInput value={value[k]} onChange={(v) => onChange({ ...value, [k]: v })} /></Field>
+    <Field label={label}><NumInput value={draft[k]} onChange={(v) => edit({ [k]: v })} /></Field>
   )
   return (
     <Card title={title}>
-      <div className="grid grid-cols-2 gap-3">
+      <div className="grid grid-cols-2 gap-3" onBlur={save}>
         {num('weight', '체중 (kg)')}
         {num('bodyFat', '체지방량 (kg)')}
         {num('muscle', '골격근량 (kg)')}
         {num('waist', '허리둘레 (cm)')}
         <Field label="컨디션·수면">
-          <input className={inputCls} value={value.condition ?? ''} onChange={(e) => onChange({ ...value, condition: e.target.value })} />
+          <input className={inputCls} value={draft.condition ?? ''} onChange={(e) => edit({ condition: e.target.value })} />
         </Field>
         <Field label="군것질 생각">
-          <input className={inputCls} value={value.craving ?? ''} onChange={(e) => onChange({ ...value, craving: e.target.value })} />
+          <input className={inputCls} value={draft.craving ?? ''} onChange={(e) => edit({ craving: e.target.value })} />
         </Field>
       </div>
+      {saved && <p className="mt-3 text-sm text-emerald-600">저장됐어요</p>}
     </Card>
   )
 }

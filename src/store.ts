@@ -3,7 +3,7 @@ import type { AppState } from './types'
 
 const KEY = 'try30.v1'
 
-const empty: AppState = { profile: null, days: {}, meals: {}, week2: {}, day1: {}, day28: {} }
+const empty: AppState = { profile: null, days: {}, meals: {}, checks: {}, day1: {}, day28: {} }
 
 function load(): AppState {
   try {
