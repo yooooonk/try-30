@@ -36,16 +36,6 @@ export interface WeekCheck {
   muscle?: number
 }
 
-export interface MealEntry {
-  id: string
-  name: string
-  category: string
-  fiber: number
-  protein: number
-  /** 가이드북 수치가 아닌 추정치가 섞였는지 */
-  est?: boolean
-}
-
 export interface Measure {
   weight?: number
   bodyFat?: number
@@ -58,7 +48,8 @@ export interface Measure {
 export interface AppState {
   profile: Profile | null
   days: Record<string, DayLog>
-  meals: Record<string, MealEntry[]>
+  /** 날짜별 섭취 계산기 선택: 식품 id → 먹은 횟수(1회분 단위) */
+  intake: Record<string, Record<string, number>>
   /** 주차별 중간 점검 (키: 주차 번호) */
   checks: Record<number, WeekCheck>
   day1: Measure

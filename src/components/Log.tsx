@@ -55,6 +55,7 @@ export function Log({ profile, state, update }: Props) {
               {dates.slice(row * 7, row * 7 + 7).map((d, c) => {
                 const n = row * 7 + c + 1
                 const recorded = isRecorded(state.days[d])
+                const exercised = state.days[d]?.exercise === true
                 return (
                   <button
                     key={d}
@@ -64,7 +65,7 @@ export function Log({ profile, state, update }: Props) {
                     <span
                       className={`mx-auto flex h-8 w-8 items-center justify-center rounded-full text-sm ${
                         recorded ? 'bg-emerald-500 text-white' : 'border border-stone-300'
-                      }`}
+                      } ${exercised ? 'ring-2 ring-orange-400 ring-offset-2' : ''}`}
                     >
                       {n}
                     </span>
@@ -75,7 +76,7 @@ export function Log({ profile, state, update }: Props) {
             </div>
           ))}
         </div>
-        <p className="mt-2 text-xs text-stone-500">초록 동그라미 = 기록한 날 · 굵은 글씨 = 오늘</p>
+        <p className="mt-2 text-xs text-stone-500">초록 동그라미 = 기록한 날 · 주황 테두리 = 운동한 날 · 굵은 글씨 = 오늘</p>
       </Card>
 
       <Card title={`DAY ${selected} 기록 · ${date}${date === today ? ' (오늘)' : ''}`}>

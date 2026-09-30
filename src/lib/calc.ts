@@ -1,6 +1,6 @@
 import guide from '../../data/guide.json'
 import foodsJson from '../../data/foods.json'
-import type { Food, MealEntry, Profile, TypeId } from '../types'
+import type { Food, Profile, TypeId } from '../types'
 
 export const foods = foodsJson as Food[]
 export { guide }
@@ -52,24 +52,18 @@ export function proteinTarget(p: Profile, weight: number): number {
 
 export const waterTarget = (weight: number) => round1((weight * guide.targets.waterMlPerKg) / 1000)
 
-export function entryFromFood(food: Food, grams: number): MealEntry {
-  const k = grams / 100
-  return {
-    id: crypto.randomUUID(),
-    name: `${food.name} ${Math.round(grams)}g`,
-    category: food.category,
-    fiber: round1(food.per100.fiber * k),
-    protein: round1(food.per100.protein * k),
-    est: food.src.fiber === 'est' || food.src.protein === 'est',
+/** 합계는 항상 식품별 값을 더해서 구한다 (식품 id → 1회분 횟수) */
+export function intakeTotals(items: Record<string, number> = {}) {
+  let fiber = 0
+  let protein = 0
+  for (const [id, n] of Object.entries(items)) {
+    const f = foods.find((x) => x.id === id)
+    if (!f) continue
+    const k = (f.serving.g * n) / 100
+    fiber += f.per100.fiber * k
+    protein += f.per100.protein * k
   }
-}
-
-/** 합계는 항상 항목별 값을 더해서 구한다 */
-export function sumEntries(entries: MealEntry[]) {
-  return {
-    fiber: round1(entries.reduce((s, e) => s + e.fiber, 0)),
-    protein: round1(entries.reduce((s, e) => s + e.protein, 0)),
-  }
+  return { fiber: round1(fiber), protein: round1(protein) }
 }
 
 export function movingAverage(values: (number | undefined)[], window = 7): (number | undefined)[] {

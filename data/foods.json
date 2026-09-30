@@ -307,7 +307,7 @@
   },
   {
     "id": "f019",
-    "name": "목이버섯(불린)",
+    "name": "목이버섯",
     "category": "버섯",
     "serving": {
       "label": "50g",
@@ -409,7 +409,7 @@
   },
   {
     "id": "f025",
-    "name": "김(구운, 무염)",
+    "name": "김",
     "category": "해조류",
     "serving": {
       "label": "2장",
@@ -443,7 +443,7 @@
   },
   {
     "id": "f027",
-    "name": "톳(불린)",
+    "name": "톳",
     "category": "해조류",
     "serving": {
       "label": "70g",
@@ -460,7 +460,7 @@
   },
   {
     "id": "f028",
-    "name": "미역(불린)",
+    "name": "미역",
     "category": "해조류",
     "serving": {
       "label": "100g",
@@ -528,7 +528,7 @@
   },
   {
     "id": "f032",
-    "name": "고구마(껍질째)",
+    "name": "고구마",
     "category": "뿌리채소",
     "serving": {
       "label": "중 1개",
@@ -562,7 +562,7 @@
   },
   {
     "id": "f034",
-    "name": "감자(껍질째)",
+    "name": "감자",
     "category": "뿌리채소",
     "serving": {
       "label": "중 1개",
@@ -681,7 +681,7 @@
   },
   {
     "id": "f041",
-    "name": "풋콩(에다마메)",
+    "name": "풋콩",
     "category": "콩",
     "serving": {
       "label": "80g",
@@ -817,7 +817,7 @@
   },
   {
     "id": "f049",
-    "name": "귀리(오트밀)",
+    "name": "귀리",
     "category": "곡물·씨앗",
     "serving": {
       "label": "40g",
@@ -902,7 +902,7 @@
   },
   {
     "id": "f054",
-    "name": "아마씨(간 것)",
+    "name": "아마씨",
     "category": "곡물·씨앗",
     "serving": {
       "label": "1큰술",
@@ -953,7 +953,7 @@
   },
   {
     "id": "f057",
-    "name": "메밀국수(건)",
+    "name": "메밀국수",
     "category": "곡물·씨앗",
     "serving": {
       "label": "80g",
@@ -1004,7 +1004,7 @@
   },
   {
     "id": "f060",
-    "name": "사과(껍질째)",
+    "name": "사과",
     "category": "과일",
     "serving": {
       "label": "1개",
@@ -1123,7 +1123,7 @@
   },
   {
     "id": "f067",
-    "name": "키위(그린)",
+    "name": "키위",
     "category": "과일",
     "serving": {
       "label": "1개",
@@ -1259,7 +1259,7 @@
   },
   {
     "id": "f075",
-    "name": "닭다리(껍질 제거)",
+    "name": "닭다리",
     "category": "육류",
     "serving": {
       "label": "150g",
@@ -1276,7 +1276,7 @@
   },
   {
     "id": "f076",
-    "name": "참치캔(기름 뺀)",
+    "name": "참치캔",
     "category": "해산물",
     "serving": {
       "label": "1캔",
@@ -1412,7 +1412,7 @@
   },
   {
     "id": "f084",
-    "name": "그릭요거트(무가당)",
+    "name": "그릭요거트",
     "category": "계란·유제품",
     "serving": {
       "label": "150g",
@@ -1472,6 +1472,23 @@
     "per100": {
       "fiber": 0,
       "protein": 3.2
+    },
+    "src": {
+      "fiber": "est",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f088",
+    "name": "양고기",
+    "category": "육류",
+    "serving": {
+      "label": "140g",
+      "g": 140
+    },
+    "per100": {
+      "fiber": 0,
+      "protein": 20
     },
     "src": {
       "fiber": "est",

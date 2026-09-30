@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Calculator } from './components/Calculator'
 import { Log } from './components/Log'
 import { Disclaimer, Onboarding } from './components/Onboarding'
 import { Recommend } from './components/Recommend'
@@ -8,11 +9,12 @@ import { todayStr } from './lib/calc'
 import { useAppState } from './store'
 import type { AppState } from './types'
 
-const TABS = ['홈', '기록', '그래프', '추천'] as const
+const TABS = ['홈', '기록', '그래프', '프로그램'] as const
 
 export default function App() {
   const [state, setState] = useAppState()
   const [tab, setTab] = useState<(typeof TABS)[number]>('홈')
+  const [calc, setCalc] = useState(false)
   const { profile: saved } = state
 
   if (!saved) return <Onboarding onDone={(p) => setState((s) => ({ ...s, profile: p }))} />
@@ -28,6 +30,14 @@ export default function App() {
 
   const common = { profile, date: today, state, update, latestWeight }
 
+  if (calc) {
+    return (
+      <div className="mx-auto max-w-md space-y-4 p-4 pb-16">
+        <Calculator {...common} onBack={() => setCalc(false)} />
+      </div>
+    )
+  }
+
   return (
     <div className="mx-auto max-w-md pb-16">
       <header className="sticky top-0 z-10 bg-stone-50/95 p-4 backdrop-blur">
@@ -40,12 +50,12 @@ export default function App() {
         </nav>
       </header>
       <main className="space-y-4 px-4">
-        {tab === '홈' && <Home profile={profile} />}
+        {tab === '프로그램' && <Home />}
         {tab === '기록' && <Log profile={profile} state={state} update={update} />}
         {tab === '그래프' && <WeightChart profile={profile} state={state} date={today} />}
-        {tab === '추천' && <Recommend {...common} />}
+        {tab === '홈' && <Recommend {...common} onOpenCalc={() => setCalc(true)} />}
         <Disclaimer />
-        <button className="text-xs text-stone-400 underline" onClick={() => { if (confirm('모든 기록을 지우고 처음부터 시작할까요?')) setState({ profile: null, days: {}, meals: {}, checks: {}, day1: {}, day28: {} }) }}>
+        <button className="text-xs text-stone-400 underline" onClick={() => { if (confirm('모든 기록을 지우고 처음부터 시작할까요?')) setState({ profile: null, days: {}, intake: {}, checks: {}, day1: {}, day28: {} }) }}>
           초기화
         </button>
       </main>
