@@ -1,0 +1,1481 @@
+[
+  {
+    "id": "f001",
+    "name": "깻잎",
+    "category": "채소",
+    "serving": {
+      "label": "10장",
+      "g": 20
+    },
+    "per100": {
+      "fiber": 4.4,
+      "protein": 3.9
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f002",
+    "name": "케일",
+    "category": "채소",
+    "serving": {
+      "label": "50g",
+      "g": 50
+    },
+    "per100": {
+      "fiber": 3.6,
+      "protein": 3.3
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f003",
+    "name": "브로콜리",
+    "category": "채소",
+    "serving": {
+      "label": "1컵",
+      "g": 100
+    },
+    "per100": {
+      "fiber": 3.1,
+      "protein": 2.8
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f004",
+    "name": "부추",
+    "category": "채소",
+    "serving": {
+      "label": "70g",
+      "g": 70
+    },
+    "per100": {
+      "fiber": 3.0,
+      "protein": 2.3
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f005",
+    "name": "시금치",
+    "category": "채소",
+    "serving": {
+      "label": "1접시",
+      "g": 70
+    },
+    "per100": {
+      "fiber": 2.6,
+      "protein": 2.9
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f006",
+    "name": "가지",
+    "category": "채소",
+    "serving": {
+      "label": "1개",
+      "g": 80
+    },
+    "per100": {
+      "fiber": 2.5,
+      "protein": 1.1
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f007",
+    "name": "양배추",
+    "category": "채소",
+    "serving": {
+      "label": "100g",
+      "g": 100
+    },
+    "per100": {
+      "fiber": 2.4,
+      "protein": 1.3
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f008",
+    "name": "콩나물",
+    "category": "채소",
+    "serving": {
+      "label": "1접시",
+      "g": 100
+    },
+    "per100": {
+      "fiber": 2.4,
+      "protein": 3.4
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f009",
+    "name": "아스파라거스",
+    "category": "채소",
+    "serving": {
+      "label": "5줄기",
+      "g": 80
+    },
+    "per100": {
+      "fiber": 2.1,
+      "protein": 2.2
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f010",
+    "name": "배추",
+    "category": "채소",
+    "serving": {
+      "label": "100g",
+      "g": 100
+    },
+    "per100": {
+      "fiber": 2.0,
+      "protein": 1.1
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f011",
+    "name": "방울토마토",
+    "category": "채소",
+    "serving": {
+      "label": "10알",
+      "g": 100
+    },
+    "per100": {
+      "fiber": 1.8,
+      "protein": 1.0
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f012",
+    "name": "파프리카",
+    "category": "채소",
+    "serving": {
+      "label": "1개",
+      "g": 100
+    },
+    "per100": {
+      "fiber": 1.6,
+      "protein": 0.9
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f013",
+    "name": "토마토",
+    "category": "채소",
+    "serving": {
+      "label": "1개",
+      "g": 150
+    },
+    "per100": {
+      "fiber": 1.2,
+      "protein": 0.9
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f014",
+    "name": "상추",
+    "category": "채소",
+    "serving": {
+      "label": "10장",
+      "g": 50
+    },
+    "per100": {
+      "fiber": 1.3,
+      "protein": 1.2
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f015",
+    "name": "애호박",
+    "category": "채소",
+    "serving": {
+      "label": "1/2개",
+      "g": 100
+    },
+    "per100": {
+      "fiber": 1.1,
+      "protein": 1.2
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f016",
+    "name": "오이",
+    "category": "채소",
+    "serving": {
+      "label": "1개",
+      "g": 100
+    },
+    "per100": {
+      "fiber": 0.6,
+      "protein": 0.8
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f017",
+    "name": "양상추",
+    "category": "채소",
+    "serving": {
+      "label": "100g",
+      "g": 100
+    },
+    "per100": {
+      "fiber": 1.0,
+      "protein": 0.9
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f018",
+    "name": "김치",
+    "category": "채소",
+    "serving": {
+      "label": "1접시",
+      "g": 50
+    },
+    "per100": {
+      "fiber": 3.0,
+      "protein": 2.0
+    },
+    "src": {
+      "fiber": "est",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f019",
+    "name": "목이버섯(불린)",
+    "category": "버섯",
+    "serving": {
+      "label": "50g",
+      "g": 50
+    },
+    "per100": {
+      "fiber": 6.0,
+      "protein": 0.6
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f020",
+    "name": "표고버섯",
+    "category": "버섯",
+    "serving": {
+      "label": "4개",
+      "g": 60
+    },
+    "per100": {
+      "fiber": 4.2,
+      "protein": 2.2
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f021",
+    "name": "느타리버섯",
+    "category": "버섯",
+    "serving": {
+      "label": "1줌",
+      "g": 70
+    },
+    "per100": {
+      "fiber": 3.7,
+      "protein": 2.6
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f022",
+    "name": "새송이버섯",
+    "category": "버섯",
+    "serving": {
+      "label": "1개",
+      "g": 70
+    },
+    "per100": {
+      "fiber": 3.1,
+      "protein": 2.6
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f023",
+    "name": "팽이버섯",
+    "category": "버섯",
+    "serving": {
+      "label": "1/2봉",
+      "g": 50
+    },
+    "per100": {
+      "fiber": 2.7,
+      "protein": 2.4
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f024",
+    "name": "마른 미역",
+    "category": "해조류",
+    "serving": {
+      "label": "국 1인분",
+      "g": 5
+    },
+    "per100": {
+      "fiber": 35,
+      "protein": 20
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f025",
+    "name": "김(구운, 무염)",
+    "category": "해조류",
+    "serving": {
+      "label": "2장",
+      "g": 4
+    },
+    "per100": {
+      "fiber": 33,
+      "protein": 41
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f026",
+    "name": "마른 다시마",
+    "category": "해조류",
+    "serving": {
+      "label": "5g",
+      "g": 5
+    },
+    "per100": {
+      "fiber": 28,
+      "protein": 7
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f027",
+    "name": "톳(불린)",
+    "category": "해조류",
+    "serving": {
+      "label": "70g",
+      "g": 70
+    },
+    "per100": {
+      "fiber": 3.5,
+      "protein": 1.5
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f028",
+    "name": "미역(불린)",
+    "category": "해조류",
+    "serving": {
+      "label": "100g",
+      "g": 100
+    },
+    "per100": {
+      "fiber": 1.5,
+      "protein": 1.9
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f029",
+    "name": "우엉",
+    "category": "뿌리채소",
+    "serving": {
+      "label": "50g",
+      "g": 50
+    },
+    "per100": {
+      "fiber": 4.5,
+      "protein": 2.5
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f030",
+    "name": "단호박",
+    "category": "뿌리채소",
+    "serving": {
+      "label": "1/4개",
+      "g": 100
+    },
+    "per100": {
+      "fiber": 4.1,
+      "protein": 1.5
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f031",
+    "name": "당근",
+    "category": "뿌리채소",
+    "serving": {
+      "label": "1/2개",
+      "g": 70
+    },
+    "per100": {
+      "fiber": 2.8,
+      "protein": 1.0
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f032",
+    "name": "고구마(껍질째)",
+    "category": "뿌리채소",
+    "serving": {
+      "label": "중 1개",
+      "g": 150
+    },
+    "per100": {
+      "fiber": 2.8,
+      "protein": 1.4
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f033",
+    "name": "연근",
+    "category": "뿌리채소",
+    "serving": {
+      "label": "70g",
+      "g": 70
+    },
+    "per100": {
+      "fiber": 2.3,
+      "protein": 1.9
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f034",
+    "name": "감자(껍질째)",
+    "category": "뿌리채소",
+    "serving": {
+      "label": "중 1개",
+      "g": 150
+    },
+    "per100": {
+      "fiber": 1.8,
+      "protein": 2.0
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f035",
+    "name": "무",
+    "category": "뿌리채소",
+    "serving": {
+      "label": "100g",
+      "g": 100
+    },
+    "per100": {
+      "fiber": 1.6,
+      "protein": 0.7
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f036",
+    "name": "렌틸콩",
+    "category": "콩",
+    "serving": {
+      "label": "100g",
+      "g": 100
+    },
+    "per100": {
+      "fiber": 7.9,
+      "protein": 9
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "pdf"
+    }
+  },
+  {
+    "id": "f037",
+    "name": "병아리콩",
+    "category": "콩",
+    "serving": {
+      "label": "100g",
+      "g": 100
+    },
+    "per100": {
+      "fiber": 7.6,
+      "protein": 9
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "pdf"
+    }
+  },
+  {
+    "id": "f038",
+    "name": "강낭콩",
+    "category": "콩",
+    "serving": {
+      "label": "100g",
+      "g": 100
+    },
+    "per100": {
+      "fiber": 6.4,
+      "protein": 8.7
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f039",
+    "name": "검은콩·서리태",
+    "category": "콩",
+    "serving": {
+      "label": "80g",
+      "g": 80
+    },
+    "per100": {
+      "fiber": 6.0,
+      "protein": 13
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "pdf"
+    }
+  },
+  {
+    "id": "f040",
+    "name": "완두콩",
+    "category": "콩",
+    "serving": {
+      "label": "80g",
+      "g": 80
+    },
+    "per100": {
+      "fiber": 5.5,
+      "protein": 5.4
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f041",
+    "name": "풋콩(에다마메)",
+    "category": "콩",
+    "serving": {
+      "label": "80g",
+      "g": 80
+    },
+    "per100": {
+      "fiber": 5.3,
+      "protein": 11
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "pdf"
+    }
+  },
+  {
+    "id": "f042",
+    "name": "낫토",
+    "category": "콩",
+    "serving": {
+      "label": "1팩",
+      "g": 50
+    },
+    "per100": {
+      "fiber": 5.4,
+      "protein": 16
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "pdf"
+    }
+  },
+  {
+    "id": "f043",
+    "name": "두부",
+    "category": "콩",
+    "serving": {
+      "label": "1/2모",
+      "g": 150
+    },
+    "per100": {
+      "fiber": 2.2,
+      "protein": 9.5
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "pdf"
+    }
+  },
+  {
+    "id": "f044",
+    "name": "순두부",
+    "category": "콩",
+    "serving": {
+      "label": "1/2봉",
+      "g": 175
+    },
+    "per100": {
+      "fiber": 0.3,
+      "protein": 5
+    },
+    "src": {
+      "fiber": "est",
+      "protein": "pdf"
+    }
+  },
+  {
+    "id": "f045",
+    "name": "템페",
+    "category": "콩",
+    "serving": {
+      "label": "100g",
+      "g": 100
+    },
+    "per100": {
+      "fiber": 4.8,
+      "protein": 19
+    },
+    "src": {
+      "fiber": "est",
+      "protein": "pdf"
+    }
+  },
+  {
+    "id": "f046",
+    "name": "볶은 서리태",
+    "category": "콩",
+    "serving": {
+      "label": "한 줌",
+      "g": 30
+    },
+    "per100": {
+      "fiber": 15,
+      "protein": 36
+    },
+    "src": {
+      "fiber": "est",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f047",
+    "name": "무가당 두유",
+    "category": "콩",
+    "serving": {
+      "label": "1팩(200ml)",
+      "g": 200
+    },
+    "per100": {
+      "fiber": 0.4,
+      "protein": 3.6
+    },
+    "src": {
+      "fiber": "est",
+      "protein": "pdf"
+    }
+  },
+  {
+    "id": "f048",
+    "name": "치아씨드",
+    "category": "곡물·씨앗",
+    "serving": {
+      "label": "1큰술",
+      "g": 12
+    },
+    "per100": {
+      "fiber": 34.2,
+      "protein": 17
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f049",
+    "name": "귀리(오트밀)",
+    "category": "곡물·씨앗",
+    "serving": {
+      "label": "40g",
+      "g": 40
+    },
+    "per100": {
+      "fiber": 10.0,
+      "protein": 13
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f050",
+    "name": "보리밥",
+    "category": "곡물·씨앗",
+    "serving": {
+      "label": "1공기",
+      "g": 210
+    },
+    "per100": {
+      "fiber": 1.7,
+      "protein": 3.0
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f051",
+    "name": "현미밥",
+    "category": "곡물·씨앗",
+    "serving": {
+      "label": "1공기",
+      "g": 210
+    },
+    "per100": {
+      "fiber": 1.4,
+      "protein": 2.8
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f052",
+    "name": "잡곡밥",
+    "category": "곡물·씨앗",
+    "serving": {
+      "label": "1공기",
+      "g": 210
+    },
+    "per100": {
+      "fiber": 1.5,
+      "protein": 2.9
+    },
+    "src": {
+      "fiber": "est",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f053",
+    "name": "백미밥",
+    "category": "곡물·씨앗",
+    "serving": {
+      "label": "1공기",
+      "g": 210
+    },
+    "per100": {
+      "fiber": 0.3,
+      "protein": 2.5
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f054",
+    "name": "아마씨(간 것)",
+    "category": "곡물·씨앗",
+    "serving": {
+      "label": "1큰술",
+      "g": 10
+    },
+    "per100": {
+      "fiber": 27.0,
+      "protein": 18
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f055",
+    "name": "아몬드",
+    "category": "곡물·씨앗",
+    "serving": {
+      "label": "15알",
+      "g": 20
+    },
+    "per100": {
+      "fiber": 12.5,
+      "protein": 21
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f056",
+    "name": "호두",
+    "category": "곡물·씨앗",
+    "serving": {
+      "label": "4알",
+      "g": 20
+    },
+    "per100": {
+      "fiber": 6.5,
+      "protein": 15
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f057",
+    "name": "메밀국수(건)",
+    "category": "곡물·씨앗",
+    "serving": {
+      "label": "80g",
+      "g": 80
+    },
+    "per100": {
+      "fiber": 2.9,
+      "protein": 13
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f058",
+    "name": "라즈베리",
+    "category": "과일",
+    "serving": {
+      "label": "100g",
+      "g": 100
+    },
+    "per100": {
+      "fiber": 6.5,
+      "protein": 1.2
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f059",
+    "name": "배",
+    "category": "과일",
+    "serving": {
+      "label": "1/2개",
+      "g": 200
+    },
+    "per100": {
+      "fiber": 3.1,
+      "protein": 0.3
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f060",
+    "name": "사과(껍질째)",
+    "category": "과일",
+    "serving": {
+      "label": "1개",
+      "g": 200
+    },
+    "per100": {
+      "fiber": 2.4,
+      "protein": 0.3
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f061",
+    "name": "아보카도",
+    "category": "과일",
+    "serving": {
+      "label": "1/2개",
+      "g": 70
+    },
+    "per100": {
+      "fiber": 6.7,
+      "protein": 2.0
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f062",
+    "name": "오렌지",
+    "category": "과일",
+    "serving": {
+      "label": "1개",
+      "g": 150
+    },
+    "per100": {
+      "fiber": 2.4,
+      "protein": 0.9
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f063",
+    "name": "딸기",
+    "category": "과일",
+    "serving": {
+      "label": "10알",
+      "g": 150
+    },
+    "per100": {
+      "fiber": 2.0,
+      "protein": 0.8
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f064",
+    "name": "딱복숭아",
+    "category": "과일",
+    "serving": {
+      "label": "1개",
+      "g": 200
+    },
+    "per100": {
+      "fiber": 1.5,
+      "protein": 0.7
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f065",
+    "name": "바나나",
+    "category": "과일",
+    "serving": {
+      "label": "1개",
+      "g": 100
+    },
+    "per100": {
+      "fiber": 2.6,
+      "protein": 1.1
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f066",
+    "name": "블루베리",
+    "category": "과일",
+    "serving": {
+      "label": "100g",
+      "g": 100
+    },
+    "per100": {
+      "fiber": 2.4,
+      "protein": 0.7
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f067",
+    "name": "키위(그린)",
+    "category": "과일",
+    "serving": {
+      "label": "1개",
+      "g": 80
+    },
+    "per100": {
+      "fiber": 3.0,
+      "protein": 1.1
+    },
+    "src": {
+      "fiber": "pdf",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f068",
+    "name": "냉동 베리",
+    "category": "과일",
+    "serving": {
+      "label": "80g",
+      "g": 80
+    },
+    "per100": {
+      "fiber": 3.5,
+      "protein": 0.8
+    },
+    "src": {
+      "fiber": "est",
+      "protein": "est"
+    }
+  },
+  {
+    "id": "f069",
+    "name": "닭안심",
+    "category": "육류",
+    "serving": {
+      "label": "130g",
+      "g": 130
+    },
+    "per100": {
+      "fiber": 0,
+      "protein": 24
+    },
+    "src": {
+      "fiber": "est",
+      "protein": "pdf"
+    }
+  },
+  {
+    "id": "f070",
+    "name": "닭가슴살",
+    "category": "육류",
+    "serving": {
+      "label": "130g",
+      "g": 130
+    },
+    "per100": {
+      "fiber": 0,
+      "protein": 23
+    },
+    "src": {
+      "fiber": "est",
+      "protein": "pdf"
+    }
+  },
+  {
+    "id": "f071",
+    "name": "돼지 안심",
+    "category": "육류",
+    "serving": {
+      "label": "140g",
+      "g": 140
+    },
+    "per100": {
+      "fiber": 0,
+      "protein": 22
+    },
+    "src": {
+      "fiber": "est",
+      "protein": "pdf"
+    }
+  },
+  {
+    "id": "f072",
+    "name": "소 우둔·홍두깨",
+    "category": "육류",
+    "serving": {
+      "label": "140g",
+      "g": 140
+    },
+    "per100": {
+      "fiber": 0,
+      "protein": 21
+    },
+    "src": {
+      "fiber": "est",
+      "protein": "pdf"
+    }
+  },
+  {
+    "id": "f073",
+    "name": "소 안심",
+    "category": "육류",
+    "serving": {
+      "label": "140g",
+      "g": 140
+    },
+    "per100": {
+      "fiber": 0,
+      "protein": 20
+    },
+    "src": {
+      "fiber": "est",
+      "protein": "pdf"
+    }
+  },
+  {
+    "id": "f074",
+    "name": "돼지 뒷다리",
+    "category": "육류",
+    "serving": {
+      "label": "140g",
+      "g": 140
+    },
+    "per100": {
+      "fiber": 0,
+      "protein": 20
+    },
+    "src": {
+      "fiber": "est",
+      "protein": "pdf"
+    }
+  },
+  {
+    "id": "f075",
+    "name": "닭다리(껍질 제거)",
+    "category": "육류",
+    "serving": {
+      "label": "150g",
+      "g": 150
+    },
+    "per100": {
+      "fiber": 0,
+      "protein": 19
+    },
+    "src": {
+      "fiber": "est",
+      "protein": "pdf"
+    }
+  },
+  {
+    "id": "f076",
+    "name": "참치캔(기름 뺀)",
+    "category": "해산물",
+    "serving": {
+      "label": "1캔",
+      "g": 100
+    },
+    "per100": {
+      "fiber": 0,
+      "protein": 25
+    },
+    "src": {
+      "fiber": "est",
+      "protein": "pdf"
+    }
+  },
+  {
+    "id": "f077",
+    "name": "고등어",
+    "category": "해산물",
+    "serving": {
+      "label": "1토막",
+      "g": 150
+    },
+    "per100": {
+      "fiber": 0,
+      "protein": 20
+    },
+    "src": {
+      "fiber": "est",
+      "protein": "pdf"
+    }
+  },
+  {
+    "id": "f078",
+    "name": "연어",
+    "category": "해산물",
+    "serving": {
+      "label": "150g",
+      "g": 150
+    },
+    "per100": {
+      "fiber": 0,
+      "protein": 20
+    },
+    "src": {
+      "fiber": "est",
+      "protein": "pdf"
+    }
+  },
+  {
+    "id": "f079",
+    "name": "새우",
+    "category": "해산물",
+    "serving": {
+      "label": "150g",
+      "g": 150
+    },
+    "per100": {
+      "fiber": 0,
+      "protein": 19
+    },
+    "src": {
+      "fiber": "est",
+      "protein": "pdf"
+    }
+  },
+  {
+    "id": "f080",
+    "name": "오징어",
+    "category": "해산물",
+    "serving": {
+      "label": "100g",
+      "g": 100
+    },
+    "per100": {
+      "fiber": 0,
+      "protein": 18
+    },
+    "src": {
+      "fiber": "est",
+      "protein": "pdf"
+    }
+  },
+  {
+    "id": "f081",
+    "name": "대구·명태",
+    "category": "해산물",
+    "serving": {
+      "label": "150g",
+      "g": 150
+    },
+    "per100": {
+      "fiber": 0,
+      "protein": 17
+    },
+    "src": {
+      "fiber": "est",
+      "protein": "pdf"
+    }
+  },
+  {
+    "id": "f082",
+    "name": "조개·굴",
+    "category": "해산물",
+    "serving": {
+      "label": "100g",
+      "g": 100
+    },
+    "per100": {
+      "fiber": 0,
+      "protein": 11
+    },
+    "src": {
+      "fiber": "est",
+      "protein": "pdf"
+    }
+  },
+  {
+    "id": "f083",
+    "name": "계란",
+    "category": "계란·유제품",
+    "serving": {
+      "label": "1개",
+      "g": 50
+    },
+    "per100": {
+      "fiber": 0,
+      "protein": 12.6
+    },
+    "src": {
+      "fiber": "est",
+      "protein": "pdf"
+    }
+  },
+  {
+    "id": "f084",
+    "name": "그릭요거트(무가당)",
+    "category": "계란·유제품",
+    "serving": {
+      "label": "150g",
+      "g": 150
+    },
+    "per100": {
+      "fiber": 0,
+      "protein": 9
+    },
+    "src": {
+      "fiber": "est",
+      "protein": "pdf"
+    }
+  },
+  {
+    "id": "f085",
+    "name": "자연치즈",
+    "category": "계란·유제품",
+    "serving": {
+      "label": "1장",
+      "g": 20
+    },
+    "per100": {
+      "fiber": 0,
+      "protein": 22
+    },
+    "src": {
+      "fiber": "est",
+      "protein": "pdf"
+    }
+  },
+  {
+    "id": "f086",
+    "name": "코티지치즈",
+    "category": "계란·유제품",
+    "serving": {
+      "label": "100g",
+      "g": 100
+    },
+    "per100": {
+      "fiber": 0,
+      "protein": 11
+    },
+    "src": {
+      "fiber": "est",
+      "protein": "pdf"
+    }
+  },
+  {
+    "id": "f087",
+    "name": "우유",
+    "category": "계란·유제품",
+    "serving": {
+      "label": "1컵(200ml)",
+      "g": 200
+    },
+    "per100": {
+      "fiber": 0,
+      "protein": 3.2
+    },
+    "src": {
+      "fiber": "est",
+      "protein": "est"
+    }
+  }
+]
