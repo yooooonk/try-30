@@ -47,9 +47,8 @@ export default function App() {
 
   return (
     <div className="mx-auto max-w-md pb-32">
-      <header className="flex items-center justify-between px-5 pb-2 pt-6">
-        <h1 className="text-2xl font-bold tracking-tight">내 몸을 바꾸는 4주</h1>
-        <span className="rounded-full bg-butter px-3 py-1 text-xs font-semibold">4주 다이어트</span>
+      <header className="flex items-center justify-end px-5 pb-2 pt-6">
+        <span className="rounded-full bg-pink px-3 py-1 text-xs font-semibold text-white">내 몸을 바꾸는 4주</span>
       </header>
       <main className="space-y-4 px-4">
         {tab === '프로그램' && <Home />}
