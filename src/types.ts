@@ -34,6 +34,7 @@ export interface DayLog {
 export interface WeekCheck {
   weight?: number
   muscle?: number
+  bodyFat?: number
 }
 
 export interface Measure {

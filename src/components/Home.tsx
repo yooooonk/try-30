@@ -2,6 +2,8 @@ import { guide } from '../lib/calc'
 import { Card } from './ui'
 
 export function Home() {
+  const patterns = [guide.mealPatterns.home, guide.mealPatterns.office, guide.mealPatterns.quick]
+
   return (
     <div className="space-y-4">
       <Card title="4주 전체 계획">
@@ -22,6 +24,48 @@ export function Home() {
         </div>
       </Card>
 
+      <Card title="추천 메뉴">
+        <div className="space-y-4 text-sm">
+          {patterns.map((p) => (
+            <div key={p.name}>
+              <p className="font-semibold">{p.name} <span className="font-normal text-stone-500">{p.desc}</span></p>
+              <ul className="mt-1 space-y-1">
+                {p.meals.map((m) => (
+                  <li key={m.slot}>
+                    <b>{m.slot}</b> {m.menu} <span className="text-stone-500">(섬유 {m.fiber} · 단백 {m.protein})</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+          <div>
+            <p className="font-semibold">아침 세트</p>
+            <ul className="mt-1 space-y-1">
+              {guide.breakfastSets.map((b) => <li key={b.name}><b>{b.name}</b> {b.menu}</li>)}
+            </ul>
+          </div>
+          <div>
+            <p className="font-semibold">간식</p>
+            <p className="mt-1">{guide.snacks.join(' · ')}</p>
+          </div>
+        </div>
+      </Card>
+
+      <Card title="외식·회식">
+          <div className="space-y-3 text-sm">
+            {guide.eatingOut.map((p) => (
+              <div key={p.place}>
+                <p className="font-semibold">{p.place}</p>
+                <p className="text-emerald-700">고르기: {p.pick.join(' / ')}</p>
+                <p className="text-red-600">피하기: {p.avoid.join(' / ')}</p>
+              </div>
+            ))}
+            <div>
+              <p className="font-semibold">회식 저녁</p>
+              <ul className="list-disc pl-5">{guide.dinnerOut.map((t) => <li key={t}>{t}</li>)}</ul>
+            </div>
+          </div>
+      </Card>
     </div>
   )
 }

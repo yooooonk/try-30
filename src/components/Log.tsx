@@ -102,6 +102,7 @@ export function Log({ profile, state, update }: Props) {
           <div className="grid grid-cols-2 gap-3">
             <Field label="체중 (kg)"><NumInput value={state.checks[week]?.weight} onChange={(v) => setCheck({ weight: v })} /></Field>
             <Field label="근육량 (kg)"><NumInput value={state.checks[week]?.muscle} onChange={(v) => setCheck({ muscle: v })} /></Field>
+            <Field label="체지방량 (kg)"><NumInput value={state.checks[week]?.bodyFat} onChange={(v) => setCheck({ bodyFat: v })} /></Field>
           </div>
         </Card>
       )}
