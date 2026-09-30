@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { addDays, dayIndex, todayStr } from '../lib/calc'
 import type { AppState, DayLog, Measure, Profile, WeekCheck } from '../types'
-import { Card, Field, ghostBtnCls, inputCls, NumInput } from './ui'
+import { Card, Field, ghostBtnCls, inputCls, NumInput, onCls } from './ui'
 
 interface Props {
   profile: Profile
@@ -36,7 +36,7 @@ export function Log({ profile, state, update }: Props) {
         {([['day1', '1일차 측정'], ['day28', '28일차 측정']] as const).map(([k, label]) => (
           <button
             key={k}
-            className={`${ghostBtnCls} ${open === k ? '!border-emerald-500 !bg-emerald-50 font-semibold' : ''}`}
+            className={`${ghostBtnCls} ${open === k ? `${onCls} font-semibold` : ''}`}
             onClick={() => setOpen(open === k ? null : k)}
           >
             {label}
@@ -51,7 +51,7 @@ export function Log({ profile, state, update }: Props) {
         <div className="space-y-2">
           {[0, 1, 2, 3].map((row) => (
             <div key={row} className="grid grid-cols-[2.5rem_repeat(7,1fr)] items-center gap-1 text-center">
-              <span className="text-xs text-stone-500">{row + 1}주</span>
+              <span className="text-xs text-ink/60">{row + 1}주</span>
               {dates.slice(row * 7, row * 7 + 7).map((d, c) => {
                 const n = row * 7 + c + 1
                 const recorded = isRecorded(state.days[d])
@@ -60,26 +60,26 @@ export function Log({ profile, state, update }: Props) {
                   <button
                     key={d}
                     onClick={() => setSelected(n)}
-                    className={`rounded-lg py-1 text-xs ${selected === n ? 'bg-stone-200' : ''} ${d === today ? 'font-bold' : ''}`}
+                    className={`rounded-lg py-1 text-xs ${selected === n ? 'bg-butter' : ''} ${d === today ? 'font-bold' : ''}`}
                   >
                     <span
                       className={`mx-auto flex h-8 w-8 items-center justify-center rounded-full text-sm ${
-                        recorded ? 'bg-emerald-500 text-white' : 'border border-stone-300'
+                        recorded ? 'bg-plum text-white' : 'border border-black/20'
                       } ${exercised ? 'ring-2 ring-orange-400 ring-offset-2' : ''}`}
                     >
                       {n}
                     </span>
-                    <span className="text-[10px] text-stone-400">{d.slice(5).replace('-', '/')}</span>
+                    <span className="text-[10px] text-ink/40">{d.slice(5).replace('-', '/')}</span>
                   </button>
                 )
               })}
             </div>
           ))}
         </div>
-        <p className="mt-2 text-xs text-stone-500">초록 동그라미 = 기록한 날 · 주황 테두리 = 운동한 날 · 굵은 글씨 = 오늘</p>
+        <p className="mt-2 text-xs text-ink/60">초록 동그라미 = 기록한 날 · 주황 테두리 = 운동한 날 · 굵은 글씨 = 오늘</p>
       </Card>
 
-      <Card title={`DAY ${selected} 기록 · ${date}${date === today ? ' (오늘)' : ''}`}>
+      <Card tone="pink" title={`DAY ${selected} 기록 · ${date}${date === today ? ' (오늘)' : ''}`}>
         <div className="space-y-4">
           <Field label="체중 (kg) · 아침 공복">
             <NumInput value={log.weight} onChange={(v) => set({ weight: v })} />
@@ -98,7 +98,7 @@ export function Log({ profile, state, update }: Props) {
       </Card>
 
       {isWeekEnd && (
-        <Card title={`${week}주차 중간 점검`}>
+        <Card tone="sky" title={`${week}주차 중간 점검`}>
           <div className="grid grid-cols-2 gap-3">
             <Field label="체중 (kg)"><NumInput value={state.checks[week]?.weight} onChange={(v) => setCheck({ weight: v })} /></Field>
             <Field label="근육량 (kg)"><NumInput value={state.checks[week]?.muscle} onChange={(v) => setCheck({ muscle: v })} /></Field>
@@ -124,8 +124,8 @@ function OX({ label, value, onChange }: { label: string; value: boolean | undefi
     <div className="flex items-center justify-between gap-3 text-sm">
       <span>{label}</span>
       <div className="flex gap-2">
-        {btn(true, 'O', '!border-emerald-500 !bg-emerald-50 font-semibold text-emerald-700')}
-        {btn(false, 'X', '!border-red-400 !bg-red-50 font-semibold text-red-600')}
+        {btn(true, 'O', `${onCls} font-semibold`)}
+        {btn(false, 'X', '!bg-plum !text-white font-semibold')}
       </div>
     </div>
   )
@@ -147,7 +147,7 @@ function MeasureCard({ title, value, onChange }: { title: string; value: Measure
     <Field label={label}><NumInput value={draft[k]} onChange={(v) => edit({ [k]: v })} /></Field>
   )
   return (
-    <Card title={title}>
+    <Card tone="butter" title={title}>
       <div className="grid grid-cols-2 gap-3" onBlur={save}>
         {num('weight', '체중 (kg)')}
         {num('bodyFat', '체지방량 (kg)')}
@@ -160,7 +160,7 @@ function MeasureCard({ title, value, onChange }: { title: string; value: Measure
           <input className={inputCls} value={draft.craving ?? ''} onChange={(e) => edit({ craving: e.target.value })} />
         </Field>
       </div>
-      {saved && <p className="mt-3 text-sm text-emerald-600">저장됐어요</p>}
+      {saved && <p className="mt-3 text-sm text-ink/70">저장됐어요</p>}
     </Card>
   )
 }
@@ -170,7 +170,7 @@ function Compare({ day1, day28 }: { day1: Measure; day28: Measure }) {
   const shown = rows.filter(([, k]) => day1[k] != null && day28[k] != null)
   if (shown.length === 0) return null
   return (
-    <Card title="1일차 → 28일차">
+    <Card tone="sage" title="1일차 → 28일차">
       <ul className="space-y-1 text-sm">
         {shown.map(([label, k]) => {
           const diff = Math.round(((day28[k] as number) - (day1[k] as number)) * 10) / 10

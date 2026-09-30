@@ -1,3 +1,14 @@
 @import "tailwindcss";
 
-body { @apply bg-stone-50 text-stone-900; }
+@theme {
+  --color-cream: #fbf4e4;
+  --color-paper: #fffdf7;
+  --color-butter: #f7de7e;
+  --color-sage: #a9b685;
+  --color-pink: #efa6cb;
+  --color-sky: #b7c4ee;
+  --color-plum: #a64a80;
+  --color-ink: #16130f;
+}
+
+body { @apply bg-cream text-ink; }

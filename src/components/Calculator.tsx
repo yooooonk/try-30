@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { dayIndex, fiberTarget, foods, intakeTotals, proteinTarget, round1, weekOf } from '../lib/calc'
 import type { AppState, Profile } from '../types'
-import { Card, ghostBtnCls, Progress } from './ui'
+import { Card, ghostBtnCls, onCls, Progress } from './ui'
 
 /** 탭별로 보여줄 카테고리 (해당 영양소가 의미 있는 것만) */
 const CATEGORIES = {
@@ -45,14 +45,14 @@ export function Calculator({ profile, date, state, update, latestWeight, onBack 
     <div className="space-y-4">
       <button className={ghostBtnCls} onClick={onBack}>← 홈으로</button>
 
-      <div className="sticky top-0 z-10">
-        <Card title="오늘 섭취량">
+      <div>
+        <Card title="오늘 섭취량" tone="sky">
           <div className="space-y-3">
             <Progress label="식이섬유" value={total.fiber} target={fiberTarget(profile, week)} />
             <Progress label="단백질" value={total.protein} target={proteinTarget(profile, latestWeight)} />
           </div>
           {selectedCount > 0 && (
-            <div className="mt-2 text-right text-xs text-stone-500">
+            <div className="mt-2 text-right text-xs text-ink/60">
               <button className="underline" onClick={() => update((s) => ({ ...s, intake: { ...s.intake, [date]: {} } }))}>
                 모두 해제
               </button>
@@ -61,9 +61,9 @@ export function Calculator({ profile, date, state, update, latestWeight, onBack 
         </Card>
       </div>
 
-      <div className="grid grid-cols-2 gap-1 rounded-lg bg-stone-200 p-1 text-sm">
+      <div className="grid grid-cols-2 gap-1 rounded-full bg-black/10 p-1 text-sm">
         {([['fiber', '식이섬유표'], ['protein', '단백질표']] as const).map(([k, label]) => (
-          <button key={k} onClick={() => { setKind(k); setCat('전체') }} className={`rounded-md py-1.5 ${kind === k ? 'bg-white font-semibold shadow-sm' : 'text-stone-600'}`}>
+          <button key={k} onClick={() => { setKind(k); setCat('전체') }} className={`rounded-full py-2 ${kind === k ? 'bg-ink font-semibold text-white' : 'text-ink/70'}`}>
             {label}
           </button>
         ))}
@@ -72,32 +72,32 @@ export function Calculator({ profile, date, state, update, latestWeight, onBack 
       <Card>
         <div className="mb-3 flex flex-wrap gap-1">
           {cats.map((c) => (
-            <button key={c} className={`${ghostBtnCls} !px-2 !py-1 text-xs ${cat === c ? '!bg-emerald-100' : ''}`} onClick={() => setCat(c)}>{c}</button>
+            <button key={c} className={`${ghostBtnCls} !px-2 !py-1 text-xs ${cat === c ? onCls : ''}`} onClick={() => setCat(c)}>{c}</button>
           ))}
         </div>
         <table className="w-full text-sm">
-          <thead className="text-left text-xs text-stone-500">
+          <thead className="text-left text-xs text-ink/60">
             <tr><th className="pb-1">식품</th><th>1회분</th><th className="text-right">1회 함량</th><th /></tr>
           </thead>
-          <tbody className="divide-y divide-stone-100">
+          <tbody className="divide-y divide-black/5">
             {rows.map(({ f, serving }) => {
               const n = items[f.id]
               const on = n != null
               return (
                 <tr
                   key={f.id}
-                  className={`cursor-pointer ${on ? 'bg-emerald-100' : 'hover:bg-stone-50'}`}
+                  className={`cursor-pointer ${on ? 'bg-butter' : 'hover:bg-black/5'}`}
                   onClick={() => setCount(f.id, on ? 0 : 1)}
                 >
                   <td className="py-1.5 pl-1">{f.name}</td>
-                  <td className="text-stone-600">{f.serving.label}</td>
+                  <td className="text-ink/70">{f.serving.label}</td>
                   <td className="text-right font-medium">{serving}g</td>
                   <td className="w-20 pr-1 text-right" onClick={(e) => e.stopPropagation()}>
                     {on && (
                       <span className="inline-flex items-center">
-                        <button className="rounded bg-white px-1 text-xs leading-4 text-stone-600" onClick={() => setCount(f.id, n - 0.5)}>−</button>
+                        <button className="rounded-full bg-white px-1.5 text-xs leading-4" onClick={() => setCount(f.id, n - 0.5)}>−</button>
                         <span className="w-5 text-center text-xs">{n}</span>
-                        <button className="rounded bg-white px-1 text-xs leading-4 text-stone-600" onClick={() => setCount(f.id, n + 0.5)}>＋</button>
+                        <button className="rounded-full bg-white px-1.5 text-xs leading-4" onClick={() => setCount(f.id, n + 0.5)}>＋</button>
                       </span>
                     )}
                   </td>

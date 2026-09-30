@@ -14,7 +14,7 @@ export function WeightChart({ profile, state, date }: { profile: Profile; state:
   muscle[0] = state.day1.muscle
   for (const w of [1, 2, 3, 4]) muscle[w * 7 - 1] = state.checks[w]?.muscle
   if (state.day28.muscle != null) muscle[27] = state.day28.muscle
-  const data = dates.map((_, i) => ({ day: `D${i + 1}`, weight: raw[i], avg: ma[i], muscle: muscle[i] }))
+  const data = dates.map((_, i) => ({ day: `D${i + 1}`, weight: raw[i], avg: ma[i], muscle: muscle[i], start: i === 0 ? startWeight : undefined }))
   const mVals = muscle.filter((v): v is number => v != null)
   const hasMuscle = mVals.length > 0
 
@@ -40,27 +40,28 @@ export function WeightChart({ profile, state, date }: { profile: Profile; state:
                   yAxisId="right"
                   orientation="right"
                   domain={[Math.floor(Math.min(...mVals) - 1), Math.ceil(Math.max(...mVals) + 1)]}
-                  tick={{ fontSize: 12, fill: '#2563eb' }}
+                  tick={{ fontSize: 12, fill: '#5b6fc4' }}
                 />
               )}
               <Tooltip />
               <Legend wrapperStyle={{ fontSize: 12 }} />
-              {type.id !== 'D' && <ReferenceArea yAxisId="left" y1={bandLow} y2={bandHigh} fill="#10b981" fillOpacity={0.12} />}
+              {type.id !== 'D' && <ReferenceArea yAxisId="left" y1={bandLow} y2={bandHigh} fill="#a9b685" fillOpacity={0.35} />}
+              <Line yAxisId="left" dataKey="start" name="시작 체중" stroke="none" dot={{ r: 5, fill: '#16130f', stroke: 'none' }} activeDot={false} legendType="circle" />
               <Line yAxisId="left" type="monotone" dataKey="weight" name="일별 체중" stroke="#a8a29e" dot={{ r: 2 }} connectNulls />
-              <Line yAxisId="left" type="monotone" dataKey="avg" name="7일 이동평균" stroke="#059669" strokeWidth={3} dot={false} connectNulls />
+              <Line yAxisId="left" type="monotone" dataKey="avg" name="7일 이동평균" stroke="#a64a80" strokeWidth={3} dot={false} connectNulls />
               {hasMuscle && (
-                <Line yAxisId="right" type="monotone" dataKey="muscle" name="골격근량(우측 축)" stroke="#2563eb" strokeWidth={2} dot={{ r: 4 }} connectNulls />
+                <Line yAxisId="right" type="monotone" dataKey="muscle" name="골격근량(우측 축)" stroke="#5b6fc4" strokeWidth={2} dot={{ r: 4 }} connectNulls />
               )}
             </LineChart>
           </ResponsiveContainer>
         </div>
-        <p className="mt-2 text-xs text-stone-500">
+        <p className="mt-2 text-xs text-ink/60">
           초록 띠 = 갈래 {type.id} 4주 목표 범위({type.goal4w[0] === 0 ? '유지' : `${hi}~${lo}kg`}, 시작 체중 {startWeight}kg 기준).
           하루 숫자가 아니라 7일 흐름을 보세요. 골격근량은 1일차·주차별 중간 점검·28일차 측정값이 파란 점으로 표시됩니다.
         </p>
       </Card>
       {inWeek2 && (
-        <p className="rounded-xl bg-amber-50 p-3 text-sm text-amber-800">
+        <p className="rounded-[28px] bg-butter p-4 text-sm">
           2주차는 체중이 정체되는 주예요. 체중계 대신 허리둘레를 보세요. 굶지 마세요.
         </p>
       )}

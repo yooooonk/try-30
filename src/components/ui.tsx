@@ -1,23 +1,34 @@
 import type { ReactNode } from 'react'
 
-export const Card = ({ title, children }: { title?: string; children: ReactNode }) => (
-  <section className="rounded-xl bg-white p-4 shadow-sm ring-1 ring-stone-200">
-    {title && <h2 className="mb-3 text-sm font-semibold text-stone-500">{title}</h2>}
+export type Tone = 'paper' | 'butter' | 'pink' | 'sage' | 'sky'
+
+const TONES: Record<Tone, string> = {
+  paper: 'bg-paper',
+  butter: 'bg-butter',
+  pink: 'bg-pink',
+  sage: 'bg-sage',
+  sky: 'bg-sky',
+}
+
+export const Card = ({ title, tone = 'paper', children }: { title?: string; tone?: Tone; children: ReactNode }) => (
+  <section className={`rounded-[28px] p-5 ${TONES[tone]}`}>
+    {title && <h2 className="mb-3 text-sm font-semibold text-ink/60">{title}</h2>}
     {children}
   </section>
 )
 
 export const inputCls =
-  'w-full rounded-lg border border-stone-300 bg-white px-3 py-2 text-sm focus:border-emerald-500 focus:outline-none'
+  'w-full rounded-2xl bg-black/5 px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-ink'
 export const btnCls =
-  'rounded-lg bg-emerald-600 px-3 py-2 text-sm font-medium text-white hover:bg-emerald-700 disabled:opacity-40'
-export const ghostBtnCls =
-  'rounded-lg border border-stone-300 px-3 py-2 text-sm hover:bg-stone-100'
+  'rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-white hover:bg-ink/85 disabled:opacity-40'
+export const ghostBtnCls = 'rounded-full bg-white/70 px-3.5 py-2 text-sm hover:bg-white'
+/** 선택된 상태의 버튼/칩 (ghostBtnCls 위에 덮어쓴다) */
+export const onCls = '!bg-ink !text-white'
 
 export function Field({ label, children }: { label: string; children: ReactNode }) {
   return (
     <label className="block text-sm">
-      <span className="mb-1 block text-stone-600">{label}</span>
+      <span className="mb-1 block text-ink/70">{label}</span>
       {children}
     </label>
   )
@@ -52,15 +63,15 @@ export function Progress({ label, value, target, unit = 'g' }: { label: string; 
   const done = value >= target
   return (
     <div>
-      <div className="mb-1 flex justify-between text-sm">
-        <span className="font-medium">{label}</span>
-        <span className="text-stone-600">
-          <b className={done ? 'text-emerald-600' : ''}>{value}</b> / {target}
+      <div className="mb-1.5 flex items-end justify-between">
+        <span className="text-sm font-medium">{label}</span>
+        <span className="text-sm text-ink/60">
+          <b className="text-2xl font-bold text-ink">{value}</b> / {target}
           {unit}
         </span>
       </div>
-      <div className="h-3 overflow-hidden rounded-full bg-stone-200">
-        <div className={`h-full ${done ? 'bg-emerald-500' : 'bg-emerald-400'}`} style={{ width: `${pct}%` }} />
+      <div className="h-3.5 overflow-hidden rounded-full bg-black/10">
+        <div className={`h-full rounded-full ${done ? 'bg-plum' : 'bg-ink'}`} style={{ width: `${pct}%` }} />
       </div>
     </div>
   )

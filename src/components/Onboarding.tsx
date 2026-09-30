@@ -17,8 +17,11 @@ export function Onboarding({ onDone }: { onDone: (p: Profile) => void }) {
   const info = guide.types.find((t) => t.id === type)
 
   return (
-    <div className="mx-auto max-w-md space-y-4 p-4">
-      <h1 className="text-xl font-bold">4주 5kg 실천 가이드</h1>
+    <div className="mx-auto flex min-h-screen max-w-md flex-col justify-center space-y-4 p-4">
+      <header className="pb-2 text-center">
+        <h1 className="text-3xl font-bold tracking-tight">내 몸을 바꾸는 4주</h1>
+        <p className="mt-2 text-sm text-ink/70">많이 드세요. 대신 좋은 걸 드세요.</p>
+      </header>
       <Card title="내 정보">
         <div className="grid grid-cols-2 gap-3">
           <Field label="성별">
@@ -43,11 +46,11 @@ export function Onboarding({ onDone }: { onDone: (p: Profile) => void }) {
         </label>
       </Card>
       {info && (
-        <Card title="나의 갈래">
+        <Card title="나의 갈래" tone="butter">
           <p className="font-semibold">
-            갈래 {info.id} · {info.name} <span className="font-normal text-stone-500">(BMI {bmi(w, h).toFixed(1)})</span>
+            갈래 {info.id} · {info.name} <span className="font-normal text-ink/60">(BMI {bmi(w, h).toFixed(1)})</span>
           </p>
-          <p className="mt-1 text-sm text-stone-600">{info.rx}</p>
+          <p className="mt-1 text-sm text-ink/70">{info.rx}</p>
           <p className="mt-1 text-sm">
             4주 목표: {info.goal4w[0] === 0 ? '체중 유지' : `${info.goal4w[1]} ~ ${info.goal4w[0]}kg`}
           </p>
@@ -60,13 +63,12 @@ export function Onboarding({ onDone }: { onDone: (p: Profile) => void }) {
       >
         시작하기
       </button>
-      <Disclaimer />
     </div>
   )
 }
 
 export const Disclaimer = () => (
-  <p className="text-xs text-stone-500">
+  <p className="text-xs text-ink/60">
     건강한 성인용 생활 가이드이며 의학적 진단을 대체하지 않습니다. 신장질환이 있으면 단백질을 늘리기 전에 의료진과 상의하세요.
   </p>
 )
